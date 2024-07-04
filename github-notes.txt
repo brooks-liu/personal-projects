@@ -1,0 +1,10 @@
+GitHub Notes:
+
+Git is a version control system, (tracks changes to files, like checkpoints)
+- Allows reverting to a previous version
+- Can work in teams, copy to a local repository, and then upload/download the changes to/from the remote repository (GitHub and others like it)
+
+Git is the actual control system
+GitHub desktop runs git as a desktop app (with a nicer interface compared to the command line)
+
+
