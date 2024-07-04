@@ -8,3 +8,10 @@ Git is the actual control system
 GitHub desktop runs git as a desktop app (with a nicer interface compared to the command line)
 
 
+Essentially, create a folder in the GitHub Desktop folder (probably in user/documents) and you'll be able to access the repository in the app
+When you make changes to something, it is automatically detected
+To commit, enter a message and hit commit to the branch that you want
+You can then push these changes to github, or fetch changes before you push yours
+
+Branches can be used to make edits at the same time as others, and you can merge the branch with main to update the code without breaking anything
+To merge, go to main branch, then go to the "branch" option and "merge into current branch" and select the branch you want
