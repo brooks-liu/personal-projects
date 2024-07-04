@@ -15,3 +15,9 @@ You can then push these changes to github, or fetch changes before you push your
 
 Branches can be used to make edits at the same time as others, and you can merge the branch with main to update the code without breaking anything
 To merge, go to main branch, then go to the "branch" option and "merge into current branch" and select the branch you want
+
+To make changes and send a pull request instead (needs approval to be saved onto github):
+- commit onto branch
+- publish the branch to github
+- create pull request on github
+- others can merge the pull request after approval
