@@ -1,0 +1,19 @@
+- could just brute force test every combination
+- how do humans solve sudoku?
+
+--> they list the possible numbers that could go in a box based on the row, column, and square it is in and the numbers that are given
+--> if we keep track of the possible numbers in each box we significantly reduce the number of tests we need to run
+--> mark squares off as complete when we know that the number is correct, and then continue the analysis until all boxes are "complete"
+
+functions (probably) needed:
+--> box_complete or some sort of way to "check off" a finished box
+--> possible_numbers runs analysis on a square to see what numbers it could take on (maybe based on only whats completed or maybe based on the number possibilities of other squares)
+--> possibilities returns which numbers are possible in the given square
+--> guess_rest runs all possible combinations of the numbers given the information
+
+
+- ideas to improve speed?
+
+--> will probably have to test on easier sodokus first to see if its working
+--> type of array might matter? maybe indexing redundancy will cause runtime to be slower
+--> more ideas will probably come to mind as the project goes on
