@@ -1,0 +1,44 @@
+A few notes on Object Oriented Programming (because everyone tells me I should know this):
+
+Primitive data types: stores single, simple values (byte, int, float, boolean, char, double)
+Structure: can store different types of variables together, but cant store functions (methods)
+
+Objects are instances of a class, classes are templates for objects
+Don't need to initialize values to anything if the objects will have different starting values
+
+Encapsulation:
+    Groups methods and attributes into one class, and it cannot be accessed by external classes
+    However, members of a class can interact with the attributes from another object through the class's methods
+
+    setting method: changes information
+    getting method: retrieves information (like piece.getcolour() for chess pieces), only readable from outside
+
+Abstraction:
+    Only show essential details, hide the rest 
+    Useful when focusing on building other classes and in collaboration
+    Think of it like interface/implmentation
+        Interface: how sections communicate, typically through methods both can accessed
+        Implmentation: implmentation of the methods should be hidden from the classes
+
+Inheritance:
+    Derive classes from other classes (can get methods and attributes from another class, like super/subclasses)
+    Subclasses inherit from the superclass
+    Access modifier: changes which classes have access to what things
+        Public: public members can be accessed from anywhere (super/sub classes, or anywhere in the program)
+        Private: can only be accessed from within the same class that the member is defined in (best when dont need to access from anywhere else),
+        can also create members of the same name in different classes, which dont conflict
+        Protected: can be accessed from the same class or subclasses
+
+Polymorphism:
+    Methods that can take on many forms
+    Dynamic vs static polymorphism
+    Dynamic:
+        occurs during runtime, describes when a method signature is in a subclass and superclass, sharing same parameters but separate
+        implmentation
+        subclass method will overrule superclass method if the object is of the subclass
+        allows methods to be written in superclass without needing to account for subclasses
+    Static:
+        occurs during compile time, methods with the same name are defined in the same class, but with different arguments (maybe even
+        different order) - called method overloading
+
+    
