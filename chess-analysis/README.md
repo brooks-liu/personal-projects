@@ -1,0 +1,2 @@
+This project idea was created as a way to end a debate that my friends were having about the least played chess move of all time. Through an online database (probably from lichess), every move will be categorized until the move with the least amount of occurances in the database is found.
+Further extension of the project could turn it into a chess analysis device, or even a chess bot capable of defeating average players.
