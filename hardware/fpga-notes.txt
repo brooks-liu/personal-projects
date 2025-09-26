@@ -1,0 +1,31 @@
+ModelSim:
+
+- file --> open then choose the proper directory
+- can also use cd <directory> until you get there
+- do <filename>.do to test (obviously write your test file first)
+- in the do files, include which verilog file + module you're testing
+  - vlib work
+  - vlog mux.sv
+  - vsim mux
+  - log (/\*)
+  - add wave (/\*)
+
+Quartus + Lab FPGAs (see mux-demo.mp4 for PROOF that it works):
+
+- Open project --> the de1-soc folder thats uploaded --> open qpf file
+- open the de1soc_top.sv file
+- make sure the boards turned on, then go to Tools-->Programmer
+- use hardware set up to get to the de-soc [usb-1]
+- Auto Detect and choose 5csema5
+- double click "none" next to the 5csema5 chip and choose the .sof file (need to create sof file first)
+- hit "Start"
+- now should be working (after it hits 100% successful)
+
+
+Create .sof file:
+- Put the .sv file for whatever module you want to instantiate into the de1soc folder
+- Open the .qpf file 
+- Go to Project-->Add/Remove Files in Project--> ...--> add the proper file and hit ok
+- Instantiate the module you want in de1soc_top.sv
+- Hit "Start Compilation" (takes a while)
+- .sof should be created in an "output" folder

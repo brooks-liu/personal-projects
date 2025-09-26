@@ -1,0 +1,16 @@
+Tetris rules: 
+- https://tetris.fandom.com/wiki/Tetris_Guideline
+- 10x20 board
+- Pieces are I, O, T, S, Z, J, L
+- Score counter
+
+
+Needed Parts:
+- Score counter --> use 7 seg display
+- Display system
+- Pieces + rotation (either direction)
+- Gravity
+- Speed up? maybe
+- Connection to VGA
+
+

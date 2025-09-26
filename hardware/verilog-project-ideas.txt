@@ -1,0 +1,9 @@
+Verilog Project Ideas (note that I'm assuming difficulty level):
+
+- Simulate a traffic light - simple
+- Score tracker on 7 seg display - simple
+- VGA display driver (with like tetris or smth) - hard
+- Something related to making debugging easier
+- Construct a better CPU (and be able to run code in assembly on it) - hard
+- Write a new library for something verilog (or a microcontroller or something)
+- Write a driver for a sensor/chip

@@ -1,0 +1,26 @@
+- Logic/Bit
+    - used to represent single drive signals
+    - think an output from only one module or a register assigned in 1 always block
+    - Logic is 4 bit while Bit is 2 bit
+    - 2 bits are logic 1 and 0
+    - additional 2 bits for logic are x (unknown/uninitialized) and z (high-impedance, floating)
+    - Logic is nice b/c you can see when somethings unknown/uninitialized when it should be working, Bit forces a 1 or 0
+    
+- Wire
+    - used for signals with two or more sources (multiple drivers)
+    - like in a tri-state bus (only one connected device can send data at a time on the bus, rest are blocked by
+    high impedance state)
+    - 
+
+- Assign 
+    - is a continuous assignment, ie. drives this thing with this given expression at all times
+    - ALWAYS active
+    - DOES NOT work with Logic
+    - for procedural (like inside always/initial blocks) use = or <=
+    - can do multi assigns like this: assign {a, b, c, d} = {w, x, y, z};
+        - only if bit widths of each match
+
+
+
+
+

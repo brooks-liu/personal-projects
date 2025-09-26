@@ -1,0 +1,9 @@
+always_ff (flip flop)
+- sequential logic (happening on clock edge)
+- signal clock edge (with maybe async reset)
+- use <= to assign
+- good for state registers + counters
+
+always_comb
+- combinational logic (no clock)
+- good for next state logic (FSM) + cases + muxes + ALUs (arithmetic logic unit, should be in this library)
