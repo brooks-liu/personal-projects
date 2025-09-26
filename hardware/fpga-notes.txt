@@ -1,5 +1,4 @@
 ModelSim:
-
 - file --> open then choose the proper directory
 - can also use cd <directory> until you get there
 - do <filename>.do to test (obviously write your test file first)
@@ -10,8 +9,8 @@ ModelSim:
   - log (/\*)
   - add wave (/\*)
 
-Quartus + Lab FPGAs (see mux-demo.mp4 for PROOF that it works):
 
+Quartus + Lab FPGAs (see mux-demo.mp4 for PROOF that it works):
 - Open project --> the de1-soc folder thats uploaded --> open qpf file
 - open the de1soc_top.sv file
 - make sure the boards turned on, then go to Tools-->Programmer
