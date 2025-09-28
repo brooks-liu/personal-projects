@@ -1,0 +1,13 @@
+09/25
+- got board working for mux
+- figured out how to use Quartus and the De1-SoC file for the mux
+- wrote "fpga-notes.txt" to help workflow in the future
+
+
+09/27
+- wrote a vga module: "vga-test.sv"
+- had trouble testing: 
+    - added "output logic VGA_HS," for VGA_HS, VGA_VS, VGA_R, VGA_G, VGA_B
+    - kept getting "VGA_B" is not a bus or array warnings
+    - ended with a "one or more pins are missing I/O standard assignments" error
+- need to look into how to map the wires correctly to have the VGA signals connected to the board

@@ -20,6 +20,10 @@
     - can do multi assigns like this: assign {a, b, c, d} = {w, x, y, z};
         - only if bit widths of each match
 
+- Reg (historical)
+    - historically used to declare sequential storage (variables that stored values, like flip-flops)
+    - changed in System Verilog to Logic, which covers continuous assignments like wire and sequential ones like Reg
+    - USE LOGIC
 
 
 

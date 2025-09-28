@@ -1,0 +1,44 @@
+First the difference between digital vs analog signals:
+- Analog
+    - Smooth, continuous waves of a large range
+    - Good for capturing real world nuance
+    - Prone to noise
+- Digital
+    - Discrete binary representation
+    - Better accuracy and noise resistance
+    - Good for storage and long-distance transmission
+    - Carry less information
+
+
+Connection:
+- Signals are made up of
+    - HSYNC (horizontal sync)
+    - VSYNC (vertical sync)
+        - These two are digital signals
+    - RGB (red, green, blue)
+        - analog voltage levels
+        - usually done by the resistor ladder DAC (digital to analog converters) on the FPGAs
+
+
+Sychronization/Timing:
+- Visible area: where visible pixels are
+- Front/back porch: a short delay before/after the sync pulse
+- Sync pulse: active sync signal 
+    - comes from the video source (computer) to the display Monitor
+- HSYNC represents the start of a new row/column of pixels
+- VSYNC signals the completion of all rows, moving the beam back to the top-left corner to begin a new frame
+- Pulse frequencies are usually (for a 25MHz) clock:
+    - vertical freq: 60Hz
+    - horizontal freq: 31.5kHz
+    - note that newer VGA are usually multisync, so no need to be exact 60 and 31.5kHz
+
+
+Monitor:
+- Displays VGA Signals
+- Pixel grid: each pixel can display a specific colour
+- PRECODED/UNCHANGEABLE ASPECTS:
+    - Displays line by line, left to right, then lines go top to bottom
+    - Number of pixels (could change based on monitor but is constant for that monitor)
+        - Usually 640 x 480
+
+
