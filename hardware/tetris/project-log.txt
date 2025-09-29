@@ -11,3 +11,14 @@
     - kept getting "VGA_B" is not a bus or array warnings
     - ended with a "one or more pins are missing I/O standard assignments" error
 - need to look into how to map the wires correctly to have the VGA signals connected to the board
+
+09/29
+- got past the error (still a lot of warnings... 15 for the timing analyzer, 145 for the full compilation)
+- .sof file creates and runs on the board but output not correct
+- somethings still wrong bc once i run it on the board the screen entered power saving mode
+    - tbh tho could just have been a coincidence but it literally went power save the moment i clicked start
+    - nvm i ran it again and it does turn off the moment i click start
+    - apparently this indicates a rejection of the signal so will do some editing on the signals
+- only 100 warnings now, and no timing analyzer warnings!
+- made a couple edits, notably decreasing the clock speed from 50 to 25MHz, and also changing the vga to blue screen
+- i realized that i can probably test somethings on modelsim, hopefully will get the vga working tomorrow! 

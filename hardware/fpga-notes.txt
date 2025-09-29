@@ -1,6 +1,7 @@
 ModelSim:
-- file --> open then choose the proper directory
+- file --> change directory then choose the proper directory
 - can also use cd <directory> until you get there
+- ls to see files in the directory
 - do <filename>.do to test (obviously write your test file first)
 - in the do files, include which verilog file + module you're testing
   - vlib work
@@ -8,6 +9,7 @@ ModelSim:
   - vsim mux
   - log (/\*)
   - add wave (/\*)
+
 
 
 Quartus + Lab FPGAs (see mux-demo.mp4 for PROOF that it works):
@@ -28,3 +30,11 @@ Create .sof file:
 - Instantiate the module you want in de1soc_top.sv
 - Hit "Start Compilation" (takes a while)
 - .sof should be created in an "output" folder
+
+
+Editing the inputs + outputs
+- Whatever inputs/outputs you specify in the module (de1soc_top) need to be assigned in Pin Planner
+- Go to Assignments --> Pin Planner
+- Most will be pre assigned, but might need to add/delete depending on what you want
+- This is pretty useful:
+  - http://www.ee.ic.ac.uk/pcheung/teaching/ee2_digital/de1-soc_user_manual.pdf
