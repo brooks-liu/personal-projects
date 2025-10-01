@@ -29,4 +29,5 @@
 - how am i going to get a proper input into the vga?
 
 10/01
-- 
+- i wonder if the left to right, top to the bottom format for the board will work properly? maybe dividing it into individual lines?
+- worked on a rate divider to convert the clock to the ticker (its in library currently "rate-divider.sv")
