@@ -1,6 +1,10 @@
 `timescale 1ns / 1ns
 // `timescale time_unit/time_precision
+/* file to compile together:
+    - tetris.sv
+    - RateDivider.sv
 
+*/
 
 module tetris(
     input logic clk,
@@ -26,9 +30,12 @@ module tetris(
     end
 
     logic ticker = 0;  // used as the game clock/ticker, for movement within the game
-    always_ff @(posedge clk) begin
-        ticker <= ~ticker;  // divide clock by 2 for now, will change later
-    end
+    RateDivider #(25000000) ticker_divider(  // i think the clock is 50MHz, so divide by 25mil to get 2Hz
+        .ClockIn(clk),
+        .Reset(!resetn),
+        .Speed(2'b01),  // normal speed for now
+        .Enable(ticker)
+    );
 
     // board representation - since what the state stored use registers
     // since board is 10x20 grid, can use 200 bits to represent it
