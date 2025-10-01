@@ -13,4 +13,21 @@ Needed Parts:
 - Speed up? maybe
 - Connection to VGA
 
+Basic Plan:
+- Get VGA working for a demo first
+- Game logic:
+    - Represent game board (10x20)
+    - Map pixels to cells
+    - Important signals (start, reset, pause/stop)
+    - Represent a tile on the board as full or empty
+    - Tetromino pieces representation
+    - Rotation of pieces
+    - FSM (spawn at top, move down each tick, check collision, lock piece, check and clear row, repeat for next piece)
 
+
+Possible Future Additions:
+- There's some fancy moves where you can spin your piece even when youre touching another piece
+- Score tracker and use this to speed up tick speed
+- Display which piece is next
+- Option to store a piece / swap with the piece in storage
+- Game over screen

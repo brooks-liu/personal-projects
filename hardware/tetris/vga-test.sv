@@ -10,7 +10,7 @@ module VGA(
 );
 // i think this FPGA is 50MHz clock, so do a clock divider first
 logic clk_25 = 0;
-always @(posedge clk) begin
+always_ff @(posedge clk) begin
   clk_25 <= ~clk_25;
 end
 
@@ -22,14 +22,14 @@ logic [9:0] CounterY;  // for VSYNC
 wire CounterXmaxed = (CounterX==799);  // counts 800 values (0-->767)
 wire CounterYmaxed = (CounterY==524);  // counts 525 values (0-->511)
 
-always @(posedge clk_25) begin
+always_ff @(posedge clk_25) begin
 if(CounterXmaxed)  // will loop over each pixel (left to right) in a line, reset if it has maxed
   CounterX <= 0;
 else
   CounterX <= CounterX + 1;
 end
 
-always @(posedge clk_25) begin   // test to see if reached end of line, increment to next line
+always_ff @(posedge clk_25) begin   // test to see if reached end of line, increment to next line
 if(CounterXmaxed)
   if(CounterYmaxed)
     CounterY <= 0;
@@ -38,8 +38,8 @@ if(CounterXmaxed)
 end
 
 // now set up the signals, they need to turn off for a certain time
-assign vga_HS = ~((CounterX >= 656) && (CounterX < 752));
-assign vga_VS = ~((CounterY >= 490) && (CounterY < 492));
+assign vga_HS = ~((CounterX >= 656) && (CounterX < 752));  // maybe change to 640? 
+assign vga_VS = ~((CounterY >= 490) && (CounterY < 492));  // maybe change to 480 + 482?
 
 // assign colours and play around
 wire video_on = (CounterX < 640) && (CounterY < 480);

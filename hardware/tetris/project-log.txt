@@ -22,3 +22,11 @@
 - only 100 warnings now, and no timing analyzer warnings!
 - made a couple edits, notably decreasing the clock speed from 50 to 25MHz, and also changing the vga to blue screen
 - i realized that i can probably test somethings on modelsim, hopefully will get the vga working tomorrow! 
+
+09/30
+- got an idea of what to do for game logic, got started on the actual game
+- have some new ideas for what to do to get vga working
+- how am i going to get a proper input into the vga?
+
+10/01
+- 
