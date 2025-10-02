@@ -1,3 +1,5 @@
+i type these during work sessions usually so if i speak in weird present/past tense combined thats why lol
+
 09/25
 - got board working for mux
 - figured out how to use Quartus and the De1-SoC file for the mux
@@ -31,3 +33,17 @@
 10/01
 - i wonder if the left to right, top to the bottom format for the board will work properly? maybe dividing it into individual lines?
 - worked on a rate divider to convert the clock to the ticker (its in library currently "rate-divider.sv")
+
+10/02
+- tested vga display on modelsim, corrected some small mistakes (not initializing values) but still not working
+- switched clock to VGA_clock instead of CLOCK_50, got rid of divider
+- looking at pin planner found out that i need a VGA_BLANK_N signal (1 means on, 0 means off) for my board so implementing right now
+- checked errors from terminal (maybe i shouldve checked before this) and saw i didnt capitalize VGA in VGA_HS/VGA_VS when instantiating
+- got a different error on the display - before it used to be "going to sleep"
+    - now its "The current timing is not supported by the monitor display. Please change your input timing to 1920x1080, 60Hz or any other
+    monitor listed timing as per the monitor specifications"
+    - does this mean i need to change the resets to 1920 and 1080?
+- https://people.ece.cornell.edu/land/courses/ece5760/DE1_SOC/DE1-SoC_User_manualv.1.2.2_revE.pdf
+    - might need to adjust signals to not be on for the porchs
+- going to start testing in modelsim first just to confirm everything has a signal
+- still no luck gotta go to my midterm now

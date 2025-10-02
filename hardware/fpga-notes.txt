@@ -9,6 +9,8 @@ ModelSim:
   - vsim mux
   - log (/\*)
   - add wave (/\*)
+- for some .do file notes: https://cheever.domains.swarthmore.edu/Ref/embedRes/QQS_V/doFileSyntax/doFileSyntax.html
+- 
 
 
 
