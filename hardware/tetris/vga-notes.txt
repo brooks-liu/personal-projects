@@ -1,3 +1,7 @@
+Possibly useful documentation:
+- http://tinyvga.com/vga-timing/640x480@60Hz
+- https://people.ece.cornell.edu/land/courses/ece5760/DE1_SOC/DE1-SoC_User_manualv.1.2.2_revE.pdf
+
 First the difference between digital vs analog signals:
 - Analog
     - Smooth, continuous waves of a large range
