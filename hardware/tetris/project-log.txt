@@ -47,3 +47,4 @@ i type these during work sessions usually so if i speak in weird present/past te
     - might need to adjust signals to not be on for the porchs
 - going to start testing in modelsim first just to confirm everything has a signal
 - still no luck gotta go to my midterm now
+- will update to have localparams

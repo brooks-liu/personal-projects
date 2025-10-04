@@ -42,7 +42,14 @@ module tetris(
     logic [199:0] board;  // change later if needed, will be left to right, top to bottom (like how the vga would read it)
     logic [199:0] next_board;  // to store the next state of the board
     
-    always_ff @
+    always_ff @(posedge ticker, negedge resetn) begin
+        if(!resetn) begin
+            board <= 0;  // reset board to empty
+        end
+        else begin
+            // some implmentation that drops piece by 1 if the bottom row isn't touching anything
+        end
+    end
 
 
     // piece representation

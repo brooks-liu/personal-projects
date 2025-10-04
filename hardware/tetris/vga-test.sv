@@ -43,7 +43,7 @@ end
 // now set up the signals, they need to turn off for a certain time
 assign vga_HS = ~((CounterX >= 664) && (CounterX < 769));  // previous 656 and 752, 664 and 769, 659 and 754 (inclusive)
 assign vga_VS = ~((CounterY >= 491) && (CounterY < 493));  // previous 490 and 492, 491 and 493, 492 and 494 (inclusive)
-assign vga_BLANK_N = (CounterX < 640) && (CounterY < 480);  // 1 if video on, 0 if not. below is different values, unsure what to use
+assign vga_BLANK_N = ((CounterX < 640) && (CounterY < 480));  // 1 if video on, 0 if not. below is different values, unsure what to use
 // assign vga_BLANK_N = ((CounterX >= 20) && (CounterX < 624) && (CounterY >= 8) && (CounterY < 420)) ? 1'b1 : 1'b0;
 // might also need to do inclusive of 640 and 480
 assign vga_SYNC_N = 1'b1;
