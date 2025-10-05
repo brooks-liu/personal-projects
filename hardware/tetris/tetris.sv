@@ -14,24 +14,20 @@ Signals needed:
     - Reset using key[0]
     - Run signal to pause/unpause game? Maybe SW[0] to pause/unpause
     - CW/CCW rotation inputs, press key[3] to rotate, if SW[9] is 1, cw, if 0 then ccw
-    - Left/right movement inputs, press key[1] to move left, key[2] to move right
+    - Left/right movement inputs, press key[1] to move right, key[2] to move left (i think thats how its oriented)
 */
 
 
 module tetris(
     input logic clk,
     input logic resetn,
+    input logic run,  // 1 to run game, 0 to pause
     input logic rotate,  // press to rotate piece
     input logic rotate_direction,  // 1 for cw, 0 for ccw
-    input logic run,  // 1 to run game, 0 to pause
     input logic left, // move piece left
     input logic right, // move piece right
 
-    output logic vga_HS,  // these should come from the virtual board representation i think?
-    output logic vga_VS,
-    output logic [7:0] R,
-    output logic [7:0] G,
-    output logic [7:0] B
+    output logic [199:0] board  // the current state of the board (10x20 grid, so 200 bits)
 );
     localparam GAME_SPEED = 60;  // amount of ticks before piece moves down, in the future if want speed increase then can change this value
     // GAME_SPEED might only be used for moving the piece down
@@ -62,12 +58,32 @@ module tetris(
 
     // board representation - since what the state stored use registers
     // since board is 10x20 grid, can use 200 bits to represent it
-    logic [199:0] board;  // change later if needed, will be left to right, top to bottom
     logic [199:0] next_board;  // to store the next state of the board
-    
+    CreateNextBoard create_next_board(
+        .clk(clk),
+        .ticker(ticker),
+        .board(board),
+        .rotate(rotate),
+        .rotate_direction(rotate_direction),
+        .left(left),
+        .right(right),
+        .next_board(next_board)
+    );
+
+    always_ff @(posedge clk, negedge resetn) begin
+        if (!resetn) begin
+            board <= 0;
+            next_board <= 0;
+        end
+        else begin
+            if (ticker) begin
+                board <= next_board;  // update the board at every tick
+            end
+        end
+    end
 
     // piece representation
-        
+
 
 
     // piece rotation

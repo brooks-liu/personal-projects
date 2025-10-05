@@ -87,3 +87,7 @@ something from all of them.
 - going to case work to always spawn the pieces in a certain way at the top of the screen
 - do i have to output the current pixel that im on + its colour to the VGA???
     - will have to work through this
+- rate divider will currently only send pulses of length pulse (so only update board once)
+- if i put the pixels in the middle
+- i found out keys are active highs
+- wrote vga-converter, going to test with a set board
