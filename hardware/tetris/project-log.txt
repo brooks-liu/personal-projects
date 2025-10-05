@@ -78,3 +78,12 @@ something from all of them.
 - Trying to go on Megafunctions/LPM page on Intel and click around the MegaFunctions to find the one to display .mif on VGA
     - https://www.intel.com/content/www/us/en/programmable/quartushelp/17.0/hdl/mega/mega_list_mega_lpm_d1353e590.htm
 
+10/05
+- Professor Rose is my goat, I have a vga module that works now (altho it is in .v not .sv, possibly a future project to convert it with his help)
+- edited + tested rate divider
+- created + developed updateboard.sv, which will be used by the main module to update the board into the next state
+- doing a lot of the logic for the board first to be able to know how to make it display on the vga (will need to build the vga module too)
+- might choose just 3 colours for now for easier implementation, green board border + blue pieces
+- going to case work to always spawn the pieces in a certain way at the top of the screen
+- do i have to output the current pixel that im on + its colour to the VGA???
+    - will have to work through this

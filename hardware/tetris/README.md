@@ -19,7 +19,7 @@ Current problems:
 
 Next steps:
 
-- Consult some people with more experience on how to approach the VGA issue
+- Figure out how to connect an output from the tetris.sv module to display on VGA
 - Look into testbench? .tb + how to use with .do files
 
 Notes:
