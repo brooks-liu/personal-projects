@@ -16,6 +16,9 @@ ModelSim:
 Altera Cyclone V FPGA Board:
 - 500k bit memory, using 320x240 bits and colour channel depth of 1 already uses up around 48% of the boards memory
   - 3^1 * 320x240 = 230400
+- .sof files configure logic elements and switch connections
+- .qsf files specify pin assignments
+
 
 
 

@@ -20,6 +20,15 @@ Current problems:
 Next steps:
 
 - Consult some people with more experience on how to approach the VGA issue
+- Look into testbench? .tb + how to use with .do files
+
+Notes:
+
+- A lot of small changes will not be reflected on the GitHub
+  - For example, the .do files will be edited on the actual lab machines that I'm doing FPGA on, and will probably not be updated very often
+  - Things that I write in my notes or SV files to try then delete within a work session probably won't be saved
+  - Websites that I visit might be not written down (already happened, I need to try and find that file again...)
+- I see some people doing a license or something(?) on their projects, if anyone wants to use this I give everyone free usage
 
 Late updated:
 October 4th, 2025

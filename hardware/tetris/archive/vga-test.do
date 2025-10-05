@@ -11,11 +11,10 @@ log {/*}  # can do -r {/*}
 add wave {/*}
 
 # force clock
-force -freeze {clk} 0 0ns
-force -deposit clk 0 0ns, 1 10ns -repeat 20ns  # 50MHz = 20ns
+force {clk} 0 0, 1 5 - repeat 10ns
 
 
-run 5ms
+run 100ns
 
 # zoom out to full waveform
 wave zoom full

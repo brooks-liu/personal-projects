@@ -1,6 +1,7 @@
 Possibly useful documentation:
 - http://tinyvga.com/vga-timing/640x480@60Hz
 - https://people.ece.cornell.edu/land/courses/ece5760/DE1_SOC/DE1-SoC_User_manualv.1.2.2_revE.pdf
+- https://www.fpga4student.com
 
 First the difference between digital vs analog signals:
 - Analog
@@ -46,5 +47,16 @@ Monitor:
     - Displays line by line, left to right, then lines go top to bottom
     - Number of pixels (could change based on monitor but is constant for that monitor)
         - Usually 640 x 480
+
+
+
+Displaying images on FPGA + VGA:
+- Two ways to load text files/images onto FPGA: loading a text file by reading the binary/hex file with verilog OR initialize 
+it as initial values within block memory
+    - First way isn't fully meant for FPGA, will have to try second way
+- For Quartus, can use Mega-Function in MegaWizard plug-in manager to initalize block memory with text file or .mif
+    - MegaFunction was replaced with IP Catalog in Tools
+- .mif files
+    - basically just regular text files formatted in a certain way (search it up)
 
 
