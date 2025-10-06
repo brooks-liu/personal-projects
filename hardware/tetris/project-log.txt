@@ -96,3 +96,7 @@ something from all of them.
     - error: didn't think through logic of having a cell of a block be 6x6 on the VGA, so its displaying very incorrectly
     - realized i dont need to update every pixel if i dont use it, so changed the pixel counter in vga-converter
 - working now! see "vga-converter-test.sv" and "demos/working-vga-adapter.mp4" --> simple test with non updating board
+
+10/06
+- everything is working! i know that jumped a lot but the actual tetris logic wasnt hard after i made the converter correct
+- time to implement new features like soft/hard drop :D

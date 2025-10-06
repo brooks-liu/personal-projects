@@ -55,7 +55,10 @@ module tetris_top(
     // pixel update logic
     logic [7:0] px;
     logic [6:0] py;
-    always_ff @(posedge CLOCK_50, negedge resetn) begin
+    always_ff @(posedge CLOCK_50, negedge resetn) begin  
+        // can do 50 MHz input because even if i rewrite a pixel, vga_adapter only updates at 25 MHz
+        // so it will just take whatever the value is at the time of the update (only a problem if
+        // i write to the same pixel multiple times before the next 25MHz clock edge, which i wont)
         if (!resetn) begin
             px <= 8'd0;
             py <= 7'd0;
@@ -90,7 +93,7 @@ module tetris_top(
         if (in_playfield) begin
             cell_index = cell_y * 10 + cell_x;
             cell_occupied = board[cell_index];
-            plot_pixel = cell_occupied;
+            plot_pixel = 1;
             cell_colour = cell_occupied ? TILE_COLOUR : 3'b000;  // otherwise black
         end else begin
             plot_pixel = 0;

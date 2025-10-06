@@ -52,7 +52,7 @@ module tetris(
     end
 
     logic ticker;  // used as the game clock/ticker, for movement within the game, is a square wave
-    RateDivider #(50000000, 1) create_ticker(  // i think the clock is 50MHz, so divide by 25mil to get 2Hz
+    RateDivider #(50000000, 100) create_ticker(  // i think the clock is 50MHz, use 100Hz for now
         .ClockIn(clk),
         .Reset(resetn),
         .Enable(ticker)
