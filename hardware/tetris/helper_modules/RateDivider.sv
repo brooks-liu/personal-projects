@@ -1,10 +1,12 @@
+`timescale 1ns/1ns
+
 /* takes in a clock frequency input then converts it to the specified output frequency using counters, 
 it will then output a pulse the same length as the input clock period at the specified output frequency
 
-to change it to make a square wave, use the commented code
+to change it to make a square wave, use the commented code and edit a few things
 */
 
-module RateDivider #(parameter CLOCK_FREQUENCY = 500, parameter OUTPUT_FREQUENCY = 1) (  // enable is the signal that is generated, equal to ClockIn/CLOCK_FREQUENCY
+module RateDivider #(parameter CLOCK_FREQUENCY = 4, parameter OUTPUT_FREQUENCY = 1) (  // enable is the signal that is generated, equal to ClockIn/CLOCK_FREQUENCY
     input logic ClockIn, resetn,
     output logic Enable
 );
@@ -14,13 +16,17 @@ module RateDivider #(parameter CLOCK_FREQUENCY = 500, parameter OUTPUT_FREQUENCY
 
     always_ff @(posedge ClockIn, negedge resetn)  // reset at 0 or when reset is high, otherwise count down
     begin
-        if ((!resetn) | (count == 0))
+        if (!resetn) begin
             count <= RESET_VAL;
-        else
+            Enable <= 0;
+        end else if (count == 0) begin
+            count <= RESET_VAL;
+            Enable <= 1;
+        end else begin
             count <= count - 1;
+            Enable <= 0;
+        end
     end
-
-    Enable = (count == 0);
 
     /*always_ff @(posedge ClockIn, negedge resetn) begin
         if (!resetn) begin

@@ -15,6 +15,8 @@ Signals needed:
     - Run signal to pause/unpause game? Maybe SW[0] to pause/unpause
     - CW/CCW rotation inputs, press key[3] to rotate, if SW[9] is 1, cw, if 0 then ccw
     - Left/right movement inputs, press key[1] to move right, key[2] to move left (i think thats how its oriented)
+
+Must update board[199:0] with the ticker, NOT THE CLOCK
 */
 
 

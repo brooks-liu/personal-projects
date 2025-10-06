@@ -7,3 +7,4 @@ always_ff (flip flop)
 always_comb
 - combinational logic (no clock)
 - good for next state logic (FSM) + cases + muxes + ALUs (arithmetic logic unit, should be in this library)
+- order matters in this (also kind for always_ff)

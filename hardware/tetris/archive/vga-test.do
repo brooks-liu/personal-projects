@@ -7,7 +7,7 @@ vlog vga-test.sv
 # module to sim
 vsim VGA
 
-log {/*}  # can do -r {/*}
+log {/*}
 add wave {/*}
 
 # force clock

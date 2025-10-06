@@ -91,3 +91,8 @@ something from all of them.
 - if i put the pixels in the middle
 - i found out keys are active highs
 - wrote vga-converter, going to test with a set board
+- noticed that in object, the switches only go up to 7, so adjusted to test first, will change to 9 if doesn't break
+- vga hook up works! after some editing
+    - error: didn't think through logic of having a cell of a block be 6x6 on the VGA, so its displaying very incorrectly
+    - realized i dont need to update every pixel if i dont use it, so changed the pixel counter in vga-converter
+- working now! see "vga-converter-test.sv" and "demos/working-vga-adapter.mp4" --> simple test with non updating board

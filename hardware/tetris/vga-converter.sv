@@ -3,12 +3,14 @@
 depending on the size of the pixel im using, the pixel width/height will change
 current value for display is 120x160 pixels, so for a 20x10 board, each cell is 6x6 pixels
 the pixel outputs will be 
+
+IMPORTANT: CHANGE THE INSTANTIATED MODULE WHEN YOU TEST/ACTUALLY RUN IT
 */
 
 module tetris_top(
     input logic CLOCK_50,
-    input logic [3:0] SW,
-    input logic [9:0] KEY,
+    input logic [9:0] SW,
+    input logic [3:0] KEY,
 
     output logic [7:0] VGA_R,
     output logic [7:0] VGA_G,
@@ -16,7 +18,8 @@ module tetris_top(
     output logic VGA_HS,
     output logic VGA_VS,
     output logic VGA_BLANK_N,
-    output logic VGA_SYNC_N
+    output logic VGA_SYNC_N,
+	output VGA_CLK
 );
     localparam CELL_WIDTH = 6;
     localparam CELL_HEIGHT = 6;
@@ -38,7 +41,7 @@ module tetris_top(
 
     // instantiate tetris game (tetris.sv outputs a board)
     logic [199:0] board;
-    tetris game (
+    tetris_test game (
         .clk(CLOCK_50),
         .resetn(resetn),
         .run(run),
@@ -57,24 +60,46 @@ module tetris_top(
             px <= 8'd0;
             py <= 7'd0;
         end else begin
-            if (px == 8'd159) begin  // resets back
+            if (px == 8'd59) begin  // resets back to 59 (dont need to update rest of screen)
                 px <= 8'd0;
-                if (py == 7'd119) py <= 7'd0;
-                else py <= py + 1;
+                if (py == 7'd119) begin
+                    py <= 7'd0;
+                end else begin
+                    py <= py + 1;
+                end
             end else begin
                 px <= px + 1;
             end
         end
     end
 
-    logic [3:0] cell_x = px / 6;  // verilog truncates it
-    logic [4:0] cell_y = py / 6;
-    logic in_playfield = (cell_x < 10) && (cell_y < 20);  // board is only 10x20 cells
-    logic [7:0] cell_index = cell_y * 10 + cell_x;
-    logic cell_occupied = in_playfield ? board_flat[cell_index] : 1'b0;
+    logic [3:0] cell_x;  
+    logic [4:0] cell_y;
+    logic in_playfield;
+    logic [7:0] cell_index;
+    logic cell_occupied;
     logic plot_pixel;
-    assign plot_pixel = cell_occupied;
-    assign cell_colour = cell_occupied ? TILE_COLOUR : 3'b000;  // otherwise black
+    logic cell_colour;
+
+    always_comb begin
+        cell_x = px / CELL_WIDTH;  // verilog truncates it
+        cell_y = py / CELL_HEIGHT;
+        in_playfield = (cell_x < 10) && (cell_y < 20);
+        cell_index = cell_y * 10 + cell_x;
+        cell_occupied = board[cell_index];
+        if (in_playfield) begin
+            cell_index = cell_y * 10 + cell_x;
+            cell_occupied = board[cell_index];
+            plot_pixel = cell_occupied;
+            cell_colour = cell_occupied ? TILE_COLOUR : 3'b000;  // otherwise black
+        end else begin
+            plot_pixel = 0;
+            cell_colour = 3'b000;
+        end
+    end
+
+
+
 
     vga_adapter VGA(
         .resetn(resetn),
@@ -90,7 +115,8 @@ module tetris_top(
         .VGA_HS(VGA_HS),
         .VGA_VS(VGA_VS),
         .VGA_BLANK_N(VGA_BLANK_N),
-        .VGA_SYNC_N(VGA_SYNC_N)
+        .VGA_SYNC_N(VGA_SYNC_N),
+        .VGA_CLK(VGA_CLK)
     );
 
 
