@@ -33,7 +33,7 @@ module tetris(
 );
     localparam GAME_SPEED = 60;  // amount of ticks before piece moves down, in the future if want speed increase then can change this value
     // GAME_SPEED might only be used for moving the piece down
-    logic allow_spawn = 0;  // signal to allow spawning of new piece, used when clearing rows or game over/restart
+    logic allow_spawn;  // signal to allow spawning of new piece, used when clearing rows or game over/restart
 
     always_ff @(posedge clk, negedge resetn) begin  // reset block go with async reset for  now
         if (!resetn) begin  // reset logic here

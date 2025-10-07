@@ -1,0 +1,52 @@
+General Notes/Thoughts:
+- some syntax is a lot like c (the for loop)
+    - looked into this and a lot of the syntax was meant to be similar to c
+    - meant to be easier for ppl to transfer from C to verilog
+    - things like comments, operators, blocks, semicolons etc.
+    - while and for loops also exist in verilog
+        - while is not synthesizable
+        - for doesn't really do anything except maybe rarely for more concise code
+- general path is stimulus --> DUT --> output checker
+- instantiate like in normal system verilog
+- DUT (Design Under Test) --> the specific part under test (individual components of a bigger design)
+- DUV (Design Under Verification)  --> entire system under test, probably including many individual DUTs
+
+Initial / Forever 
+- initial blocks are sequential within one block, but run in parallel with other initial blocks
+    - only execute once at the beginning of the simulation
+- forever loops good for if want a periodic signal, also must have a time delay in the loop to advance
+- forever block wont execute unless its in a procedural block like initial/always
+
+
+System Tasks
+- $display("Input: %h, Output %h", x, y)  similar to printf in C. h specifies hexadecimal, stuff like %b, %d, %s exists too
+    - runs once when called
+- $monitor("%d", variables) will print if any of the signals specified changes
+    - doesnt need to be called again to print smth new, will run whenever smth changes
+- $time used a little differently, used like a variable to get the current simulation time
+    - $display("%t", $time)
+- $finish finishes the simulation
+
+Errors:
+- "clk is not a valid l-value in main, clk is declared here as a wire"
+    - basically i wrote clk <= inside the initial block, which is wrong because it is not a continuous assignment
+    - same with reset, forgot to initialize declaring them as logic
+    - also i declared input/output ports but test files usually dont have ports
+    - change to just logic
+- when i include $finish it doesnt work
+https://stackoverflow.com/questions/47297001/verilog-error-not-a-valid-l-value
+
+For ModelSim:
+Create new project
+When setting up itll ask for the testbench file
+give your files as well
+
+
+
+
+Sources:
+https://fpgatutorial.com/how-to-write-a-basic-verilog-testbench
+https://www.chipverify.com/systemverilog/systemverilog-simple-testbench
+
+Future topics to look into:
+- Output checker
