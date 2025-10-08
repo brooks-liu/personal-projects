@@ -1,4 +1,4 @@
-General Notes/Thoughts:
+General Notes:
 - some syntax is a lot like c (the for loop)
     - looked into this and a lot of the syntax was meant to be similar to c
     - meant to be easier for ppl to transfer from C to verilog
@@ -31,22 +31,31 @@ Errors:
 - "clk is not a valid l-value in main, clk is declared here as a wire"
     - basically i wrote clk <= inside the initial block, which is wrong because it is not a continuous assignment
     - same with reset, forgot to initialize declaring them as logic
-    - also i declared input/output ports but test files usually dont have ports
-    - change to just logic
-- when i include $finish it doesnt work
-https://stackoverflow.com/questions/47297001/verilog-error-not-a-valid-l-value
+    - also i declared input/output ports but realized theres no input/outputs for main, so initialize the clk, reset, and 
+    
+- when i include $finish or $stop it doesnt work?
+    - kept giving "syntax error" at the "end" declaration of the initial block, then when i delete that it says syntax error at 
+    "endmodule" at the end of the module, then when i delete that it says "syntax error" on the empty line
+    - couldnt figure out the issue, so just ran using for loop or if i used forever i just specify run time in ModelSim
 
 For ModelSim:
-Create new project
-When setting up itll ask for the testbench file
-give your files as well
-
-
-
+- file --> new --> project
+- name the project
+- add all files
+- in the command line type in order:
+    - vlib work (mightve already been created)
+    - vlog <DUT>.sv  (add the DUT files first then testbench)
+    - vlog main.sv  (assuming testbench name is main)
+Can skip to here if already uploaded files
+    - vsim work.main
+    - add wave {/*}  (adds all waves, if the waveform window isnt open go to view --> wave)
+    - run or run <time>ns
+    - wave zoom full
 
 Sources:
 https://fpgatutorial.com/how-to-write-a-basic-verilog-testbench
 https://www.chipverify.com/systemverilog/systemverilog-simple-testbench
 
 Future topics to look into:
-- Output checker
+- Output checker (besides manual checking using the console output)
+- Using .do to run the testbench

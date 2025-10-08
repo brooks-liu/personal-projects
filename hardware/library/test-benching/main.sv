@@ -1,26 +1,4 @@
 `timescale 1ns/1ns
-module counter(
-  input logic clk,
-  input logic reset,
-  output logic [3:0] counter
-);
-  always_ff @(posedge clk) begin
-    if(reset) begin
-      counter <= 0;
-    end else if (counter == 14) begin
-      counter <= 0;
-    end else begin
-      counter <= counter + 1;
-    end
-  end
-endmodule
-
-/*
-- run for >1 cycle of the counter
-- test if reset during time with NO pos clock edge then shouldnt reset
-- test reset during pos clock edge --> make counter 0
-*/
-
 module main;
 logic clk;
 logic reset;
@@ -35,10 +13,10 @@ counter c1(
 // first initial for clock + initial values (one cycle every 10ns)
 initial begin
   clk = 0;
-  for(int i = 0; i < 40; i++) begin
+  for(int i = 0; i < 50; i++) begin
     #5 clk = ~clk;
   end
-  /*forever begin
+  /*forever begin  // uncomment this for infinite clock cycles (ModelSim probably)
     #5 clk = ~clk;
   end*/
 end
@@ -61,6 +39,8 @@ initial begin
   #7 // continue past clock edge
   $display("Test2 done. Counter = %d", counter);  // counter should be 3
   // for test 3, dont start at positive clock edge
+  // originally was #5 and #5 before the reset in line 47 but i couldnt figure out why it wasnt working,
+  // turns out it was just because i didnt have enough clock edges in more for loop, and increasing to 50 fixed it
 
 
   // test3: reset during positive edge
@@ -73,10 +53,10 @@ initial begin
   - Test1 completion line is printed
   - counter = 2 and 3
   - Test2 completion
-  - counter = 4 then 5
+  - counter = 0
   - Test3 complete
-  - added a finish to stop the forever loop
-  - if running the for loop, should stop exactly after Test3 prints
+  - if running the for loop, might print a few more values that are counting up
+  - if using forever loop, will keep printing values, but I just ran it for a certain time frame on ModelSim (run 300ns)
   */
 end
 endmodule
